@@ -1,0 +1,7 @@
+dbt-duckdb==1.8.2
+pandas==2.2.2
+faker==25.2.0
+ctgan==0.9.0
+sdv==1.11.0
+ollama
+streamlit==1.35.0

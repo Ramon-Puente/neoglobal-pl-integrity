@@ -1,0 +1,25 @@
+name: 'neoglobal'
+version: '1.0.0'
+config-version: 2
+
+profile: 'neoglobal'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["data"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  neoglobal: # This is your project name, matching the 'name' at the top
+    +materialized: view # Default materialization for all models in this project
+    staging:
+      +materialized: ephemeral # Staging models are often ephemeral views
+    marts:
+      +materialized: table # Mart models are often tables for performance

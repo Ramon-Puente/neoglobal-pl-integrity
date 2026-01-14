@@ -1,0 +1,33 @@
+# --- Data Isolation (Samsung SSD) ---
+# We exclude these because they physically live on the SSD 
+# or are heavy analytical artifacts.
+/mnt/
+/data/
+*.parquet
+*.csv
+*.db
+*.db.wal
+
+# --- AI Models ---
+# GAN models can be large; we keep them local/on SSD.
+models/
+*.pkl
+
+# --- Docker & Environment ---
+.env
+.docker_infra/
+docker-compose.override.yml
+
+# --- Python & System ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+.DS_Store
+
+# --- dbt ---
+target/
+dbt_packages/
+logs/

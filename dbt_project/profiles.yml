@@ -1,0 +1,6 @@
+neoglobal:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: '/mnt/ssd_warehouse/neoglobal.db'
