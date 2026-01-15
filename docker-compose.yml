@@ -14,11 +14,14 @@ services:
       # 3. WAREHOUSE (DuckDB): Maps SSD warehouse to /mnt/ssd_warehouse
       - /Volumes/Samsung SSD/.docker_infra/persistent_volumes/neoglobal_integrity/warehouse/:/mnt/ssd_warehouse/
       
+    stdin_open: true
+    tty: true
+    ports:
+      - "8501:8501"
+      - "8080:8080"
     environment:
       - PYTHONUNBUFFERED=1
       # Explicitly tell dbt and Python where to find the SSD data
       - DATA_PATH_RAW=/mnt/ssd_raw
       - DATA_PATH_WAREHOUSE=/mnt/ssd_warehouse
-      
-    stdin_open: true
-    tty: true
+      - DBT_PROFILES_DIR=/app/dbt_project
